@@ -1,5 +1,5 @@
 {% set name = "boring-semantic-layer" %}
-{% set version = "0.1.11" %}
+{% set version = "0.1.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/boring_semantic_layer-{{ version }}.tar.gz
-  sha256: ebdde6cc3d14e432af6fddd1cfdc0a81c9bb3b1c6c4a91b2ada3e13d5bef8e6b
+  sha256: 4400274ce1282008e574fcb160003754c238b179182bdb4466bcf4e393f41bd7
 
 build:
   noarch: python
