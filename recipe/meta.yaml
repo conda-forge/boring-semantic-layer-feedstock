@@ -22,7 +22,7 @@ requirements:
   run:
     - python >={{ python_min }}
     - attrs >=25.3.0
-    - ibis-framework>=11.0.0
+    - ibis-framework >=11.0.0
     - packaging
     - pyyaml >=6.0
     - returns >=0.26.0
