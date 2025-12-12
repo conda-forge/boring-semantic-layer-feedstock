@@ -1,15 +1,17 @@
 {% set name = "boring-semantic-layer" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/boring_semantic_layer-{{ version }}.tar.gz
-  sha256: 9413d3085fd6a9e18765f7b159ad2dba4ad580497c789616f8955a5c42302ddb
+  url: https://github.com/boringdata/boring-semantic-layer/archive/v{{ version }}.tar.gz
+  sha256: 539f5c929e1edfedc517e7e813c7857fe8d94cf10f9daf0fd90628a3ae8b9af9
 
 build:
+  entry_points:
+    - bsl = boring_semantic_layer.agents.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
@@ -22,16 +24,18 @@ requirements:
   run:
     - python >={{ python_min }}
     - attrs >=25.3.0
-    - ibis-framework >=11.0.0
     - packaging
     - pyyaml >=6.0
     - returns >=0.26.0
+    - xorq >=0.3.4
+    - ibis-framework >=11.0.0
 
 test:
   imports:
     - boring_semantic_layer
   commands:
     - pip check
+    - bsl --help
   requires:
     - pip
     - python {{ python_min }}
